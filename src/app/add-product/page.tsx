@@ -54,6 +54,8 @@ export default async function AddProductPage() {
       <h1 className="mb-3 text-lg font-bold">Add Product</h1>
       <form action={addProduct}>
         <input
+        // required hace que next automaticamente tire un error si 
+        //no se relleno el campo
           required
           name="name"
           placeholder="Name"
@@ -79,6 +81,8 @@ export default async function AddProductPage() {
           type="number"
           className="input-bordered input mb-3 w-full"
         />
+        {/* esto de abajo es un componente que deshabilita el boton y muestra que hay un request 
+        en proceso */}
         <FormSubmitButton className="btn-block">Add Product</FormSubmitButton>
       </form>
     </div>
