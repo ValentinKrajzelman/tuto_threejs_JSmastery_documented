@@ -1,3 +1,10 @@
+//este es el inicio de la documentacion, tiene next server actions, tailwind responsive design, prisma, daisyUI, deployment en vercel
+//tambien explica como configurar prettier para formatear el orden de las clases de tailwindcss
+
+//de las extensiones de VScode recomienda prettier, tailwindcss intellisense, prisma(para el highlight, code completion, etc)
+
+//se usa atlas mongoDB a la que accede con prisma
+
 import Footer from "./Footer";
 import Navbar from "./Navbar/Navbar";
 import "./globals.css";

@@ -8,7 +8,11 @@ export const metadata = {
   title: "Add Product - Flowmazon",
 };
 
+  // esta funcion recibe la formdata de la form de abajo, formdata es un tipo nativo
 async function addProduct(formData: FormData) {
+  //para usar server actions podemos hacer la funcion aca mismo sin hacer un endpoint en una file separada, 
+  //es menos codigo y mas intuitivo, pero como estamos en un client side component, tenemos que definir la
+  //funcion como server side:
   "use server";
 
   const session = await getServerSession(authOptions);
@@ -17,9 +21,14 @@ async function addProduct(formData: FormData) {
     redirect("/api/auth/signin?callbackUrl=/add-product");
   }
 
+  //el ? indica que la propiedad solo se aplica si formData.get() no es falsey
   const name = formData.get("name")?.toString();
   const description = formData.get("description")?.toString();
   const imageUrl = formData.get("imageUrl")?.toString();
+  //valor default de la funcion es 0 "||" (OR logico) indica que se tome el valor
+  //de la izquierda cuando el valor derecho es falsey, una alternativa seria el  
+  // Nullish coalescing operator (??) que toma el valor de la izquierda cuando el derecho es 
+  //null o undefined
   const price = Number(formData.get("price") || 0);
 
   if (!name || !description || !imageUrl || !price) {

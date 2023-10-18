@@ -1,12 +1,20 @@
+//para trabajar con prisma tenemos que hacer el setup de la mongo db, y despues usar el comando 
+//npx prisma db pull 
+//eso genera un modelo con todos y cualquier documento ya creado en atlas, 
+//ademas una vez que hayas hecho el pull despues se puede hacer un push con los cambios que se hayan introducido al modelo en esta schema
+//npx prisma db push 
+
 generator client {
   provider = "prisma-client-js"
 }
 
+//establece la conexion con la mongoDB en atlas(database_url en .env tiene que tener la conexion) 
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
+//modelo que se crea a partir de la estructura definida en atlas
 model Product {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
   description String
@@ -17,6 +25,7 @@ model Product {
   updatedAt   DateTime   @updatedAt
   CartItem    CartItem[]
 
+  //define a que modelo conecta
   @@map("products")
 }
 

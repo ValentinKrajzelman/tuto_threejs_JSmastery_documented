@@ -1,3 +1,5 @@
+//primero poner el comando: npm install --save-dev eslint-config-prettier
+//configuracion para evitar el conflicto entre eslint y prettier
 {
   "extends": ["next/core-web-vitals", "prettier"]
 }
