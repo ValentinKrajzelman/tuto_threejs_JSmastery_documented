@@ -3,7 +3,7 @@ import ProductCard from "@/components/ProductCard";
 import { prisma } from "@/lib/db/prisma";
 import Image from "next/image";
 import Link from "next/link";
-
+//la primera pagina que se cargar en la direccion '/'
 interface HomeProps {
   searchParams: { page: string };
 }
