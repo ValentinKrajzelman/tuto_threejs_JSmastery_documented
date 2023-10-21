@@ -3,11 +3,14 @@ import Link from "next/link";
 import PriceTag from "./PriceTag";
 import Image from "next/image";
 
+//se usan interfaces a menos que necesites un type
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  //date pasa un fecha a milisegundos y now() la fecha actual a milisegundos, 
+  //esto corrobora si el product es de hace menos que una semana
   const isNew =
     Date.now() - new Date(product.createdAt).getTime() <
     1000 * 60 * 60 * 24 * 7;
