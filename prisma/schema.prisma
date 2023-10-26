@@ -14,8 +14,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-//modelo que se crea a partir de la estructura definida en atlas
-model Product {
+//modelo que se crea a partir de la estructura definida en atlas, 
+//a su vez para a ser un type importable en el resto de la app
+model Product { 
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
   description String
   imageUrl    String
