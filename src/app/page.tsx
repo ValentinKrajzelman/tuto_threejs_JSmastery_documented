@@ -20,6 +20,8 @@ export default async function Home({
 
   const totalPages = Math.ceil((totalItemCount - heroItemCount) / pageSize);
 
+  //aca esta usando prisma para hacer un request a la mongodb y pasandole un objeto que especifica  
+  //la query, mongo
   const products = await prisma.product.findMany({
     orderBy: { id: "desc" },
     skip:
